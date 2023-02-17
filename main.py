@@ -16,7 +16,12 @@ while True:
         if queued[0] == "2":
             time.sleep(0.1)
 
-            toSend = variables.encode("Strange text that is too be frank quite, quite long, and thus cannoot send in one 256 length packet. Here we see a script that is designed to be very cool. Um. what else do I say. Hello World! If you look in the code, you'll find that there is no reference to this long set of text; that's becuase it's stored on the cloud. I wonder if you could make a streaming service with this. That would be cool.")
+            toSend = variables.encode("This is a fallback text in case the file does not load.")
+
+            with open('message.txt','r') as file:
+                toSend=file.readline()
+
+
             toSend = list(sliced(toSend,250))
             
             print(f"Setting data")
